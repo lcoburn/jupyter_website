@@ -1,0 +1,9 @@
+node_modules
+dist
+venv
+public/lite
+.ipynb_checkpoints
+src/data/notebooks.json
+.DS_Store
+*.local
+.jupyterlite.doit.db

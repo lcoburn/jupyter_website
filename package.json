@@ -1,0 +1,28 @@
+{
+  "name": "maths-physics-notebooks",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "predev": "node scripts/build-manifest.mjs",
+    "build": "vite build",
+    "prebuild": "node scripts/build-manifest.mjs",
+    "preview": "vite preview",
+    "lite:build": "node scripts/build-manifest.mjs && rm -rf dist && ./venv/bin/jupyter-lite build --output-dir public/lite",
+    "notebooks": "./venv/bin/jupyter lab --notebook-dir=content",
+    "setup": "npm install && python3 -m venv venv && ./venv/bin/pip install -r requirements-dev.txt && npm run lite:build"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.0.3"
+  }
+}

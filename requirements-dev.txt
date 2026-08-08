@@ -1,0 +1,9 @@
+# Local development only — Netlify builds use requirements.txt (keeps CI lean).
+-r requirements.txt
+jupyterlab>=4,<5
+# Packages used by the notebook content, for running them in local JupyterLab.
+# (The website's Pyodide kernel provides these in-browser automatically —
+# do NOT add them to requirements.txt, Netlify never executes notebooks.)
+numpy
+matplotlib
+ipywidgets

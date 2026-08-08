@@ -1,0 +1,10 @@
+[build]
+  command = "python3 -m venv venv && ./venv/bin/pip install -r requirements.txt && npm run lite:build && npm run build"
+  publish = "dist"
+
+# SPA fallback for React Router. Netlify serves existing files first,
+# so /lite/* assets are unaffected by this rule.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
