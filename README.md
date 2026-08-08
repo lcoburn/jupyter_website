@@ -145,11 +145,15 @@ reload. Students on Moodle never hit this unless they've edited the notebook the
 Each notebook is a standalone page. In Moodle, add an iframe (or a "Page"/label with HTML) pointing at the deployed site's notebook URL:
 
 ```html
-<iframe src="https://<your-site>.netlify.app/lite/notebooks/index.html?path=applied-maths/vectors.ipynb"
-        width="100%" height="700" style="border:0"></iframe>
+<iframe src="https://jupyterwebsite.netlify.app/lite/notebooks/index.html?path=applied-maths/vectors/vectors.ipynb"
+        width="100%" height="800" style="border:0;"></iframe>
 ```
 
-Swap `applied-maths/vectors.ipynb` for any path under `content/`.
+Swap `applied-maths/vectors/vectors.ipynb` for any path under `content/`. Note the URL
+pattern is `?path=<subject>/<topic>/<file>.ipynb` — the standalone notebook page, *not* the
+website route (so Moodle gets just the notebook, without the site's tabs and header).
+Alternatively, add a Moodle **URL** activity with **Appearance → Display → Embed** — no HTML
+needed.
 
 ## Tech Stack
 
