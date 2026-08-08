@@ -49,10 +49,20 @@ npm run build        # site -> dist (copies public/lite along)
 Same flow as the physics_website:
 
 1. Push to GitHub.
-2. In Netlify: "Add new site" → import the repo. Netlify reads `netlify.toml` automatically:
-   - **Build command:** creates the Python venv, builds JupyterLite, then `vite build`
-   - **Publish directory:** `dist`
-3. Deploy. Pushes to `main` redeploy automatically.
+2. In Netlify: "Add new site" → import the repo. Everything is pre-configured:
+   - `netlify.toml` — build command (`npm run lite:build && npm run build`), publish dir (`dist`), SPA redirects, COOP/COEP headers
+   - `runtime.txt` — Python version; Netlify auto-runs `pip install -r requirements.txt` and `npm install`
+3. Deploy.
+
+**Every `git push` to `main` auto-redeploys the site.** Pull requests get preview deployments.
+
+Typical edit-publish loop:
+
+```bash
+npm run notebooks          # edit & save notebooks
+npm run lite:build         # verify locally (optional)
+git add . && git commit -m "..." && git push   # Netlify takes it from there
+```
 
 ## Project Structure
 
