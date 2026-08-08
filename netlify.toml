@@ -1,5 +1,7 @@
 [build]
-  command = "python3 -m venv venv && ./venv/bin/pip install -r requirements.txt && npm run lite:build && npm run build"
+  # Netlify auto-runs `pip install -r requirements.txt` (see runtime.txt for the
+  # Python version) and `npm install` before this command.
+  command = "npm run lite:build && npm run build"
   publish = "dist"
 
 # SPA fallback for React Router. Netlify serves existing files first,
@@ -8,3 +10,11 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+# Recommended by the JupyterLite docs: enables SharedArrayBuffer for more
+# reliable kernel file-system access.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Embedder-Policy = "require-corp"
