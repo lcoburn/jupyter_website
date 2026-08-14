@@ -7,3 +7,4 @@ jupyterlab>=4,<5
 numpy
 matplotlib
 ipywidgets
+ipympl

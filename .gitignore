@@ -2,6 +2,7 @@ node_modules
 dist
 venv
 public/lite
+public/jupyter
 .ipynb_checkpoints
 src/data/notebooks.json
 .DS_Store
