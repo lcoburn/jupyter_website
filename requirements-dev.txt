@@ -6,5 +6,6 @@ jupyterlab>=4,<5
 # do NOT add them to requirements.txt, Netlify never executes notebooks.)
 numpy
 matplotlib
+pandas
 ipywidgets
 ipympl
