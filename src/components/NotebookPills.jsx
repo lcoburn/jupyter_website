@@ -1,13 +1,13 @@
 import { useNavigate, useParams } from 'react-router-dom'
 
 // Third level of navigation: the notebooks inside one topic.
-// Only rendered when the topic has more than one notebook.
+// Always rendered, even for a single notebook, so the notebook's name is visible.
 function NotebookPills({ subject, topic }) {
   const navigate = useNavigate()
   const { notebookId } = useParams()
   const active = notebookId || topic.notebooks[0]?.id
 
-  if (topic.notebooks.length <= 1) return null
+  if (topic.notebooks.length === 0) return null
 
   return (
     <div className="flex flex-wrap gap-2">

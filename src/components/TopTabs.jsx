@@ -1,10 +1,13 @@
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { subjects } from '../data/sections'
 
 function TopTabs() {
   const navigate = useNavigate()
-  const { subjectId } = useParams()
-  const active = subjectId || subjects[0].id
+  // TopTabs is rendered outside <Routes>, so useParams() has no route match
+  // and would always return {}. Derive the active subject from the URL instead.
+  const { pathname } = useLocation()
+  const current = pathname.split('/')[1]
+  const active = subjects.some((s) => s.id === current) ? current : subjects[0].id
 
   const go = (id) => {
     const subject = subjects.find((s) => s.id === id)

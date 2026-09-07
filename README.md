@@ -82,7 +82,7 @@ jupyter_website/
 │   ├── components/
 │   │   ├── TopTabs.jsx      # Subject tabs (Applied Maths | Physics)
 │   │   ├── SubTabs.jsx      # Topic tabs (Units | Vectors | Mechanics)
-│   │   ├── NotebookPills.jsx# Notebook picker within a topic (shown when >1)
+│   │   ├── NotebookPills.jsx# Notebook picker within a topic (always shown)
 │   │   └── NotebookFrame.jsx# Notebook iframe
 │   ├── data/sections.js     # Helpers over the generated manifest
 │   ├── pages/SubjectPage.jsx
@@ -127,7 +127,7 @@ in-browser Pyodide kernel already includes the common scientific packages.
 To add a notebook: drop the `.ipynb` into `content/<subject>/<topic>/` and run
 `npm run lite:build` — it appears on the site automatically. Notes:
 
-- A topic can hold any number of notebooks; a picker row appears when there is more than one.
+- A topic can hold any number of notebooks; the picker row always shows, even with a single notebook, so the current notebook's name is visible.
 - The display title is the notebook's first `# Heading` (fallback: prettified filename).
 - Notebooks are ordered alphabetically by filename — use prefixes like `00_`, `01_` to
   control the order.
