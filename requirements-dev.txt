@@ -2,8 +2,9 @@
 -r requirements.txt
 jupyterlab>=4,<5
 # Packages used by the notebook content, for running them in local JupyterLab.
-# (The website's Pyodide kernel provides these in-browser automatically —
-# do NOT add them to requirements.txt, Netlify never executes notebooks.)
+# numpy / matplotlib / pandas are provided in-browser by Pyodide, so they stay here.
+# ipywidgets is also in requirements.txt because it ships a frontend extension that
+# JupyterLite must bundle into the deployed site (see comment there).
 numpy
 matplotlib
 pandas

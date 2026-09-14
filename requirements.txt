@@ -1,3 +1,7 @@
 jupyterlite-core>=0.4,<0.7
 jupyterlite-pyodide-kernel>=0.4,<0.7
 jupyter-server>=2,<3
+# ipywidgets ships a JupyterLab *frontend* extension (@jupyter-widgets/jupyterlab-manager)
+# that JupyterLite bundles from the build environment. Without it here, the deployed site
+# has no widgets manager, so ipywidgets won't render even if installed in the browser.
+ipywidgets>=8,<9
